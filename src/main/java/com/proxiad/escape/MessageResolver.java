@@ -6,4 +6,12 @@ public class MessageResolver {
 
     }
 
+    public String decode(String message) {
+        return null;
+    }
+
+    public String decode(String message, String key) {
+        return null;
+    }
+
 }
