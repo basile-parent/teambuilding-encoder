@@ -14,8 +14,9 @@ public class MessageResolver {
     }
 
     public String decode(String message, String alphabet) {
-        return IntStream.range(0, message.length())
-                .map(idx -> Integer.valueOf(message.charAt(idx) + ""))
+        String messageLower = message.toLowerCase();
+        return IntStream.range(0, messageLower.length())
+                .map(idx -> Integer.valueOf(((int) messageLower.charAt(idx) - 'a') + ""))
                 .boxed()
                 .map(c -> alphabet.charAt(c) + "")
                 .collect(Collectors.joining());
