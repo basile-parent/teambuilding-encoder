@@ -13,4 +13,10 @@ public class MessageResolverTest {
         assertNull(messageResolver.decode("message"));
     }
 
+    @Test
+    public void test_decode_shouldReturnDecodedStringFromAlphabet() {
+        assertEquals("BESFC", messageResolver.decode("01234", "BESFCOYAJDLQZPRVXTMIWUHNGK"));
+
+    }
+
 }
