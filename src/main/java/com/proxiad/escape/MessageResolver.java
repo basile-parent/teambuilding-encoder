@@ -1,4 +1,4 @@
-package main.java.com.proxiad.escape;
+package com.proxiad.escape;
 
 public class MessageResolver {
 
