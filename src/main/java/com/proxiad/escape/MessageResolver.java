@@ -21,7 +21,7 @@ public class MessageResolver {
     private String decode(String message, String alphabet) {
         String messageUpper = message.toUpperCase();
         return IntStream.range(0, messageUpper.length())
-                .map(idx -> Integer.valueOf(((int) messageUpper.charAt(idx) - 'a') + ""))
+                .map(idx -> Integer.valueOf(((int) messageUpper.charAt(idx) - 'A') + ""))
                 .boxed()
                 .map(c -> alphabet.charAt(c) + "")
                 .collect(Collectors.joining());

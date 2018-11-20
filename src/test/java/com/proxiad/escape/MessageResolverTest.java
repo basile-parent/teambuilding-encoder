@@ -14,13 +14,14 @@ public class MessageResolverTest {
         assertEquals("BBB", messageResolver.decode("AAA", ALPHABET, 1));
         assertEquals("BESFC", messageResolver.decode("ABCDE", ALPHABET, 1));
         assertEquals("ECMOS", messageResolver.decode("ABCDE", ALPHABET, 2));
-        assertEquals("ECMOS", messageResolver.decode("ABCDE", ALPHABET, 2));
+        assertEquals("JESUISUNETHEIERE", messageResolver.decode("TEIFLIFWEGOELEXE", "DBKREQICJVLTZYNGWXMSOFHAPU", 11));
     }
 
     @Test
     public void test_encode_shouldReturnEncodedStringForEnigma() {
         assertEquals("ABCDE", messageResolver.encode("BESFC", ALPHABET, 1));
+        assertEquals("TEIFLIFWEGOELEXE", messageResolver.encode("JESUISUNETHEIERE", "DBKREQICJVLTZYNGWXMSOFHAPU", 11));
     }
-    // Enigme à résoudre :
+    // Enigme à résoudre : TEIFLIFWEGOELEXE - DBKREQICJVLTZYNGWXMSOFHAPU - 11
 
 }
