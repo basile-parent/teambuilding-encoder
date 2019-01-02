@@ -2,7 +2,8 @@ package com.proxiad.escape;
 
 public class MessageResolver {
 
-    public String decode(String arg1, String arg2, int arg3) {
+    public String decodeRecursivly(String message, String alphabet, int repetitions) {
         return null;
     }
+
 }

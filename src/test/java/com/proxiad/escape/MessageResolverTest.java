@@ -7,27 +7,33 @@ import static org.junit.Assert.*;
 public class MessageResolverTest {
 
     private MessageResolver messageResolver = new MessageResolver();
-    private static final String arg2 = "BESFCOYAJDLQZPRVXTMIWUHNGK";
+    private static final String ALPHABET = "FNSTCMJAOHDPUXQKBGRWYVEILZ";
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithOneRepetition() {
-        assertEquals("BBB", messageResolver.decode("AAA", arg2, 1));
-        assertEquals("BESFC", messageResolver.decode("ABCDE", arg2, 1));
-        assertEquals("VTRNJBF", messageResolver.decode("PROXIAD", arg2, 1));
+        // A = 1st position, B = 2nd position, ...
+        assertEquals("FFF", messageResolver.decodeRecursivly("AAA", ALPHABET, 1));
+        assertEquals("FNSTC", messageResolver.decodeRecursivly("ABCDE", ALPHABET, 1));
+        assertEquals("KGQIOFT", messageResolver.decodeRecursivly("PROXIAD", ALPHABET, 1));
     }
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithTwoRepetitions() {
-        assertEquals("EEE", messageResolver.decode("AAA", arg2, 2));
-        assertEquals("ECMOS", messageResolver.decode("ABCDE", arg2, 2));
-        assertEquals("UITPDEO", messageResolver.decode("PROXIAD", arg2, 2));
+        // /!\ Recursive function (input modified at each repetition) /!\
+        assertEquals("MMM", messageResolver.decodeRecursivly("AAA", ALPHABET, 2));
+        assertEquals("MXRWS", messageResolver.decodeRecursivly("ABCDE", ALPHABET, 2));
+        assertEquals("DJBOQMW", messageResolver.decodeRecursivly("PROXIAD", ALPHABET, 2));
     }
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithThreeRepetitions() {
-        assertEquals("CCC", messageResolver.decode("AAA", arg2, 3));
+        assertEquals("UUU", messageResolver.decodeRecursivly("AAA", ALPHABET, 3));
     }
 
-    // Enigme à résoudre : TEIFLIFWEGOELEXE - DBKREQICJVLTZYNGWXMSOFHAPU - 11
+    // Riddle to solve
+    @Test
+    public void test_decode_enigma() {
+        assertEquals("???", messageResolver.decodeRecursivly("KMYCBYCOMADMBMLM", ALPHABET, 27));
+    }
 
 }
