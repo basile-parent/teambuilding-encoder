@@ -11,7 +11,9 @@ public class MessageResolverTest {
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithOneRepetition() {
-        // A = 1st position, B = 2nd position, ...
+        // A = 1st position on mixed ALPHABET => becomes F
+        // B = 2nd position on mixed ALPHABET => becomes N
+        // ...
         assertEquals("FFF", messageResolver.decodeRecursivly("AAA", ALPHABET, 1));
         assertEquals("FNSTC", messageResolver.decodeRecursivly("ABCDE", ALPHABET, 1));
         assertEquals("KGQIOFT", messageResolver.decodeRecursivly("PROXIAD", ALPHABET, 1));
@@ -20,6 +22,9 @@ public class MessageResolverTest {
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithTwoRepetitions() {
         // /!\ Recursive function (input modified at each repetition) /!\
+        // A = 1st position => becomes F = 6th position => becomes M
+        // B = 2nd position => becomes N = 14th position => becomes X
+        // ...
         assertEquals("MMM", messageResolver.decodeRecursivly("AAA", ALPHABET, 2));
         assertEquals("MXRWS", messageResolver.decodeRecursivly("ABCDE", ALPHABET, 2));
         assertEquals("DJBOQMW", messageResolver.decodeRecursivly("PROXIAD", ALPHABET, 2));
@@ -27,6 +32,7 @@ public class MessageResolverTest {
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithThreeRepetitions() {
+        // A = 1st position => becomes F = 6th position => becomes M = 15th position => becomes U
         assertEquals("UUU", messageResolver.decodeRecursivly("AAA", ALPHABET, 3));
     }
 
