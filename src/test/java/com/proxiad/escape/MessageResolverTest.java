@@ -32,7 +32,7 @@ public class MessageResolverTest {
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithThreeRepetitions() {
-        // A = 1st position => becomes F = 6th position => becomes M = 15th position => becomes U
+        // A = 1st position => becomes F = 6th position => becomes M = 13th position => becomes U
         assertEquals("UUU", messageResolver.decodeRecursivly("AAA", ALPHABET, 3));
     }
 
