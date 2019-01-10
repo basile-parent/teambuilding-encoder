@@ -9,7 +9,7 @@ public class MessageResolver {
 
     }
 
-    public String decode(String message, String alphabet, int times) {
+    public String decodeRecursivly(String message, String alphabet, int times) {
         String decodedMessage = message;
         for (int i = 0; i < times; i++) {
             decodedMessage = decode(decodedMessage, alphabet);
