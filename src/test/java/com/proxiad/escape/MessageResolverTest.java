@@ -7,40 +7,51 @@ import static org.junit.Assert.*;
 public class MessageResolverTest {
 
     private MessageResolver messageResolver = new MessageResolver();
-    private static final String ALPHABET = "FNSTCMJAOHDPUXQKBGRWYVEILZ";
+    private static final String SHAKED_ALPHABET = "FNSTCMJAOHDPUXQKBGRWYVEILZ";
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithOneRepetition() {
-        // A = 1st position on mixed ALPHABET => becomes F
-        // B = 2nd position on mixed ALPHABET => becomes N
-        // ...
-        assertEquals("FFF", messageResolver.decodeRecursivly("AAA", ALPHABET, 1));
-        assertEquals("FNSTC", messageResolver.decodeRecursivly("ABCDE", ALPHABET, 1));
-        assertEquals("KGQIOFT", messageResolver.decodeRecursivly("PROXIAD", ALPHABET, 1));
+        assertEquals("F", messageResolver.decodeRecursivly("A", SHAKED_ALPHABET, 1));
+        assertEquals("M", messageResolver.decodeRecursivly("F", SHAKED_ALPHABET, 1));
+        assertEquals("FF", messageResolver.decodeRecursivly("AA", SHAKED_ALPHABET, 1));
+        assertEquals("FFF", messageResolver.decodeRecursivly("AAA", SHAKED_ALPHABET, 1));
+        assertEquals("NNN", messageResolver.decodeRecursivly("BBB", SHAKED_ALPHABET, 1));
+    }
+
+    @Test
+    public void test_decode_shouldReturnDecodedStringFromAlphabetWithOneRepetitionnn() {
+        assertEquals("SFOT", messageResolver.decodeRecursivly("CAID", SHAKED_ALPHABET, 1));
+        assertEquals("KGQIOFT", messageResolver.decodeRecursivly("PROXIAD", SHAKED_ALPHABET, 1));
+        assertEquals("JAMBON", messageResolver.decodeRecursivly("GHFQIB", SHAKED_ALPHABET, 1));
     }
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithTwoRepetitions() {
-        // /!\ Recursive function (input modified at each repetition) /!\
-        // A = 1st position => becomes F = 6th position => becomes M
-        // B = 2nd position => becomes N = 14th position => becomes X
-        // ...
-        assertEquals("MMM", messageResolver.decodeRecursivly("AAA", ALPHABET, 2));
-        assertEquals("MXRWS", messageResolver.decodeRecursivly("ABCDE", ALPHABET, 2));
-        assertEquals("DJBOQMW", messageResolver.decodeRecursivly("PROXIAD", ALPHABET, 2));
+        assertEquals("M", messageResolver.decodeRecursivly("A", SHAKED_ALPHABET, 2));
+        assertEquals("Y", messageResolver.decodeRecursivly("M", SHAKED_ALPHABET, 2));
+        assertEquals("MM", messageResolver.decodeRecursivly("AA", SHAKED_ALPHABET, 2));
+        assertEquals("MMM", messageResolver.decodeRecursivly("AAA", SHAKED_ALPHABET, 2));
+        assertEquals("XXX", messageResolver.decodeRecursivly("BBB", SHAKED_ALPHABET, 2));
+    }
+
+
+    @Test
+    public void test_decode_shouldReturnDecodedStringFromAlphabetWithTwoRepetitionsss() {
+        assertEquals("RMQW", messageResolver.decodeRecursivly("CAID", SHAKED_ALPHABET, 2));
+        assertEquals("DJBOQMW", messageResolver.decodeRecursivly("PROXIAD", SHAKED_ALPHABET, 2));
+        assertEquals("JAMBON", messageResolver.decodeRecursivly("RJAOXQ", SHAKED_ALPHABET, 2));
     }
 
     @Test
     public void test_decode_shouldReturnDecodedStringFromAlphabetWithThreeRepetitions() {
-        // A = 1st position => becomes F = 6th position => becomes M = 13th position => becomes U
-        assertEquals("UUU", messageResolver.decodeRecursivly("AAA", ALPHABET, 3));
+        assertEquals("UUU", messageResolver.decodeRecursivly("AAA", SHAKED_ALPHABET, 3));
     }
 
     // Enigme à résoudre : LAMWOMWXAJPAOAUA - FNSTCMJAOHDPUXQKBGRWYVEILZ - 27
     // Riddle to solve
     @Test
     public void test_decode_enigma() {
-        assertEquals("JESUISUNETHEIERE", messageResolver.decodeRecursivly("KMYCBYCOMADMBMLM", ALPHABET, 27));
+        assertEquals("JESUISUNETHEIERE", messageResolver.decodeRecursivly("KMYCBYCOMADMBMLM", SHAKED_ALPHABET, 27));
     }
 
 

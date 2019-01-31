@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="qunit.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+
+<!--
+    Hello Andrew.
+    Woah, Qunit is awesome of simplicity. Just open this HTML to see test result !
+-->
+
+<script>
+
+  // TODO DELETE
+  const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  function decodeRecursivly(message, alphabet, repetition) {
+    // TODO DELETE
+    let decoded = '';
+    let max = message.split('').length;
+    for (let i = 0; i < max; i++) {
+      let currentChar = message.split('')[i];
+
+      for (let j = 0; j < repetition; j++) {
+        let pos = ALPHABET.indexOf(currentChar);
+        currentChar = alphabet.split('')[pos];
+      }
+      decoded += currentChar;
+    }
+    return decoded;
+  }
+
+</script>
+
+<script src="qunit.js"></script>
+
+<script>
+
+  const SHAKED_ALPHABET = 'FNSTCMJAOHDPUXQKBGRWYVEILZ';
+
+  QUnit.test('Should return decoded String from alphabet with one repetition. Basic entries', function (assert) {
+    assert.equal(decodeRecursivly('A', SHAKED_ALPHABET, 1), 'F', 'A become F');
+    assert.equal(decodeRecursivly('F', SHAKED_ALPHABET, 1), 'M', 'F become M');
+    assert.equal(decodeRecursivly('AA', SHAKED_ALPHABET, 1), 'FF', 'AA become FF');
+    assert.equal(decodeRecursivly('AAA', SHAKED_ALPHABET, 1), 'FFF', 'AAA become FFF');
+    assert.equal(decodeRecursivly('BBB', SHAKED_ALPHABET, 1), 'NNN', 'BBB become NNN');
+  });
+
+  QUnit.test("Should return decoded String from alphabet with one repetition. More complex entries", function (assert) {
+    assert.equal(decodeRecursivly('CAID', SHAKED_ALPHABET, 1), 'SFOT', 'CAID become SFOT');
+    assert.equal(decodeRecursivly('PROXIAD', SHAKED_ALPHABET, 1), 'KGQIOFT', 'PROXIAD become KGQIOFT');
+    assert.equal(decodeRecursivly('GHFQIB', SHAKED_ALPHABET, 1), 'JAMBON', 'GHFQIB become JAMBON');
+  });
+
+  QUnit.test("Should return decoded String from alphabet with two repetitions. Basic entries", function (assert) {
+    assert.equal(decodeRecursivly('A', SHAKED_ALPHABET, 2), 'M', 'A become M');
+    assert.equal(decodeRecursivly('M', SHAKED_ALPHABET, 2), 'Y', 'M become Y');
+    assert.equal(decodeRecursivly('AA', SHAKED_ALPHABET, 2), 'MM', 'AA become FF');
+    assert.equal(decodeRecursivly("AAA", SHAKED_ALPHABET, 2), "MMM", "AAA become MMM");
+    assert.equal(decodeRecursivly("BBB", SHAKED_ALPHABET, 2), "XXX", "BBB become XXX");
+  });
+
+  QUnit.test("Should return decoded String from alphabet with two repetitions. More complex entries", function (assert) {
+    assert.equal(decodeRecursivly("CAID", SHAKED_ALPHABET, 2), "RMQW", "CAID become RMQW");
+    assert.equal(decodeRecursivly("PROXIAD", SHAKED_ALPHABET, 2), "DJBOQMW", "PROXIAD become DJBOQMW");
+    assert.equal(decodeRecursivly("RJAOXQ", SHAKED_ALPHABET, 2), "JAMBON", "RJABXQ become JAMBON");
+  });
+
+  QUnit.test("Should return decoded String from alphabet with three repetitions.", function (assert) {
+    assert.equal(decodeRecursivly("AAA", SHAKED_ALPHABET, 3), "UUU", "AAA become UUU");
+  });
+
+  // Riddle to solve
+  QUnit.test("Should open something when decoded ?", function (assert) {
+    assert.equal(decodeRecursivly("KMYCBYCOMADMBMLM", SHAKED_ALPHABET, 27), "???", "KMYCBYCOMADMBMLM become ???");
+  });
+
+</script>
+</body>
+</html>
