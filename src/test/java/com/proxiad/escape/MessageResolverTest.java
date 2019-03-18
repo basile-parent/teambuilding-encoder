@@ -30,7 +30,7 @@ public class MessageResolverTest {
     private static final String SHAKED_ALPHABET = "FNSTCMJAOHDPUXQKBGRWYVEILZ";
 
     @Test
-    public void test_decode_shouldReturnDecodedStringFromAlphabetWithOneRepetition() {
+    public void decode_shouldReturnDecodedStringFromAlphabetWithOneRepetition() {
         assertEquals("F", messageResolver.decodeLoop("A", SHAKED_ALPHABET, 1));
         assertEquals("M", messageResolver.decodeLoop("F", SHAKED_ALPHABET, 1));
         assertEquals("FF", messageResolver.decodeLoop("AA", SHAKED_ALPHABET, 1));
@@ -39,14 +39,14 @@ public class MessageResolverTest {
     }
 
     @Test
-    public void test_decode_shouldReturnDecodedStringFromAlphabetWithOneRepetitionnn() {
+    public void decode_shouldReturnDecodedStringFromAlphabetWithOneRepetitionnn() {
         assertEquals("SFOT", messageResolver.decodeLoop("CAID", SHAKED_ALPHABET, 1));
         assertEquals("KGQIOFT", messageResolver.decodeLoop("PROXIAD", SHAKED_ALPHABET, 1));
         assertEquals("JAMBON", messageResolver.decodeLoop("GHFQIB", SHAKED_ALPHABET, 1));
     }
 
     @Test
-    public void test_decode_shouldReturnDecodedStringFromAlphabetWithTwoRepetitions() {
+    public void decode_shouldReturnDecodedStringFromAlphabetWithTwoRepetitions() {
         assertEquals("M", messageResolver.decodeLoop("A", SHAKED_ALPHABET, 2));
         assertEquals("Y", messageResolver.decodeLoop("M", SHAKED_ALPHABET, 2));
         assertEquals("MM", messageResolver.decodeLoop("AA", SHAKED_ALPHABET, 2));
@@ -56,20 +56,25 @@ public class MessageResolverTest {
 
 
     @Test
-    public void test_decode_shouldReturnDecodedStringFromAlphabetWithTwoRepetitionsss() {
+    public void decode_shouldReturnDecodedStringFromAlphabetWithTwoRepetitionsss() {
         assertEquals("RMQW", messageResolver.decodeLoop("CAID", SHAKED_ALPHABET, 2));
         assertEquals("DJBOQMW", messageResolver.decodeLoop("PROXIAD", SHAKED_ALPHABET, 2));
         assertEquals("JAMBON", messageResolver.decodeLoop("RJAOXQ", SHAKED_ALPHABET, 2));
     }
 
     @Test
-    public void test_decode_shouldReturnDecodedStringFromAlphabetWithThreeRepetitions() {
+    public void decode_shouldReturnDecodedStringFromAlphabetWithThreeRepetitions() {
         assertEquals("UUU", messageResolver.decodeLoop("AAA", SHAKED_ALPHABET, 3));
     }
 
+
+    /**
+     * Riddle to solve
+     */
     @Test
-    public void test_decode_enigma() {
+    public void decode_riddle_shouldReturnACodeToOpenSomething() {
         assertEquals("???", messageResolver.decodeLoop("???", SHAKED_ALPHABET, 0));
     }
+    
 
 }

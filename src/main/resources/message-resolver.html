@@ -69,10 +69,14 @@
     assert.equal(decodeLoop("AAA", SHAKED_ALPHABET, 3), "UUU", "AAA become UUU");
   });
 
+
+
   // Riddle to solve
-  QUnit.test("Should open something when decoded ?", function (assert) {
-    assert.equal(decodeLoop("KMYCBYCOMADMBMLM", SHAKED_ALPHABET, 27), "???", "KMYCBYCOMADMBMLM become ???");
+  QUnit.test("Should return a code to open something when decoded", function (assert) {
+    assert.equal(decodeLoop("???", SHAKED_ALPHABET, 0), "???", "KMYCBYCOMADMBMLM become ???");
   });
+
+
 
 </script>
 </body>
