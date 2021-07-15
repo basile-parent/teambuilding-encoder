@@ -27,7 +27,7 @@ public class MessageResolver {
                 .collect(Collectors.joining());
     }
 
-    public String encode(String message, String alphabet, int times) {
+    public String encodeRecursivly(String message, String alphabet, int times) {
         String encodedMessage = message;
         for (int i = 0; i < times; i++) {
             encodedMessage = encode(encodedMessage, alphabet);

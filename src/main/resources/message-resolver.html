@@ -53,8 +53,7 @@
   });
 
   QUnit.test("Should return decoded String from alphabet with one repetition. More complex entries", function (assert) {
-    assert.equal(decodeRecursivly('CAID', SHAKED_ALPHABET, 1), 'SFOT', 'CAID become SFOT');
-    assert.equal(decodeRecursivly('PROXIAD', SHAKED_ALPHABET, 1), 'KGQIOFT', 'PROXIAD become KGQIOFT');
+    assert.equal(decodeRecursivly('LEROYMERLIN', SHAKED_ALPHABET, 1), 'PCGQLUCGPOX', 'LEROYMERLIN become PCGQLUCGPOX');
     assert.equal(decodeRecursivly('GHFQIB', SHAKED_ALPHABET, 1), 'JAMBON', 'GHFQIB become JAMBON');
   });
 
@@ -67,8 +66,7 @@
   });
 
   QUnit.test("Should return decoded String from alphabet with two repetitions. More complex entries", function (assert) {
-    assert.equal(decodeRecursivly("CAID", SHAKED_ALPHABET, 2), "RMQW", "CAID become RMQW");
-    assert.equal(decodeRecursivly("PROXIAD", SHAKED_ALPHABET, 2), "DJBOQMW", "PROXIAD become DJBOQMW");
+    assert.equal(decodeRecursivly("LEROYMERLIN", SHAKED_ALPHABET, 2), "KSJBPYSJKQI", "LEROYMERLIN become KSJBPYSJKQI");
     assert.equal(decodeRecursivly("RJAOXQ", SHAKED_ALPHABET, 2), "JAMBON", "RJABXQ become JAMBON");
   });
 
