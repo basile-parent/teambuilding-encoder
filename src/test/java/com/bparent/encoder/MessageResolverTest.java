@@ -1,4 +1,4 @@
-package com.proxiad.escape;
+package com.bparent.encoder;
 
 import org.junit.Test;
 
@@ -6,11 +6,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- *     __  __     ____         ___              __
- *    / / / /__  / / /___     /   |  ____  ____/ /_______ _      __
- *   / /_/ / _ \/ / / __ \   / /| | / __ \/ __  / ___/ _ \ | /| / /
- *  / __  /  __/ / / /_/ /  / ___ |/ / / / /_/ / /  /  __/ |/ |/ /
- * /_/ /_/\___/_/_/\____/  /_/  |_/_/ /_/\__,_/_/   \___/|__/|__/
+ *     __  __     ____
+ *    / / / /__  / / /___
+ *   / /_/ / _ \/ / / __ \
+ *  / __  /  __/ / / /_/ /
+ * /_/ /_/\___/_/_/\____/
  *
  *
  * Here is your workspace for the decoder. I prepared two development environments (Java and Javascript) as I

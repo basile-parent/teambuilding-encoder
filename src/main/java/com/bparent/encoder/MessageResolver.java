@@ -1,4 +1,4 @@
-package com.proxiad.escape;
+package com.bparent.encoder;
 
 public class MessageResolver {
 
