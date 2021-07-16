@@ -9,7 +9,7 @@ public class MessageResolver {
 
     }
 
-    public String decodeRecursivly(String message, String alphabet, int times) {
+    public String decodeLoop(String message, String alphabet, int times) {
         String decodedMessage = message;
         for (int i = 0; i < times; i++) {
             decodedMessage = decode(decodedMessage, alphabet);
@@ -27,7 +27,7 @@ public class MessageResolver {
                 .collect(Collectors.joining());
     }
 
-    public String encodeRecursivly(String message, String alphabet, int times) {
+    public String encodeLoop(String message, String alphabet, int times) {
         String encodedMessage = message;
         for (int i = 0; i < times; i++) {
             encodedMessage = encode(encodedMessage, alphabet);
