@@ -1,4 +1,4 @@
-package com.proxiad.escape;
+package com.bparent.encoder;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
